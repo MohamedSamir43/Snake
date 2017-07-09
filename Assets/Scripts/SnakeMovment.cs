@@ -16,7 +16,8 @@ public class SnakeMovment : MonoBehaviour {
     float stop = 0;
     public bool paused = false;
     public GameObject popup;
-	void Start () {
+	void Start ()
+    {
 	tailObjects.Add(gameObject);
 	}
     void move()
@@ -28,13 +29,13 @@ public class SnakeMovment : MonoBehaviour {
         ScoreText.text = score.ToString();
         
         transform.Translate(Vector3.forward * Speed * Time.deltaTime);
-        
 
-        if (Input.GetKey(KeyCode.D))
+
+        if (Input.GetKey(KeyCode.RightArrow))
         {
             transform.Rotate(Vector3.up * RotationSpeed * Time.deltaTime);
         }
-        if (Input.GetKey(KeyCode.A))
+        if (Input.GetKey(KeyCode.LeftArrow))
         {
             transform.Rotate(Vector3.up * -1 * RotationSpeed * Time.deltaTime);
         }
@@ -57,7 +58,7 @@ public class SnakeMovment : MonoBehaviour {
         }
         else if (score >= number_of_apples_to_win)
         {
-            SceneManager.LoadScene("LevelTwo");
+            //SceneManager.LoadScene("LevelTwo");
         }
         
 
