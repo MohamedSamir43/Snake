@@ -15,9 +15,9 @@ public class UIManager : MonoBehaviour
 
     }
 	// Load Game Scene on Start Button Click
-    public void LoadScene()
+    public void LoadScene(string SceneGame)
     {
-        Application.LoadLevel("PlayV2");
+        Application.LoadLevel(SceneGame);
     }
 
     public void Quit()
