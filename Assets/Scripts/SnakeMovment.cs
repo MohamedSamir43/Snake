@@ -13,56 +13,59 @@ public class SnakeMovment : MonoBehaviour {
 	public GameObject TailPrefab;
 	public Text ScoreText;
 	public int score = 0;
-    float stop = 0;
-    public bool paused = false;
-    public GameObject popup;
+	float stop = 0;
+	public bool pausedBoolean = false;
+	public Text[] texts=new Text[2];
+	public Button[] buttons = new Button[4];
+	public GameObject popup;
+	TransitionMenu transitionMenu;
+	Snake snakeScript;
+
 	void Start ()
-    {
-	tailObjects.Add(gameObject);
+	{
+		tailObjects.Add(gameObject);
+		transitionMenu = new TransitionMenu(popup,texts,buttons);
+		snakeScript = new Snake(transform, RotationSpeed,Speed);
 	}
-    void move()
-    {
 
-    }
-    void Update()
-    {
-        ScoreText.text = score.ToString();
-        
-        transform.Translate(Vector3.forward * Speed * Time.deltaTime);
+	void Update()
+	{
+		ScoreText.text = score.ToString();
+		if (!transitionMenu.isPlay())
+		{
+			snakeScript.move(Time.deltaTime);
+		}
+		else
+		{
+			snakeScript.stop();
+		}
+		if (Input.GetKey(KeyCode.RightArrow))
+		{
+			transform.Rotate(Vector3.up  * RotationSpeed * Time.deltaTime);
+		}
+		else if (Input.GetKey(KeyCode.LeftArrow))
+		{
+			transform.Rotate(Vector3.up * -1 * RotationSpeed * Time.deltaTime);
+		}
+		else if (Input.GetKeyDown(KeyCode.P))
+		{
+			transitionMenu.play();
+			transitionMenu.paused(); 
+		}
+		else if (score >= number_of_apples_to_win)
+		{
+			transitionMenu.play();
+			transitionMenu.win(100.0f);
+		}
+		else if (Borders.hitTakePlace)
+		{
+			// Debug.Log("Borders.hitTakePlace");
+			transitionMenu.play();
+			transitionMenu.lose();
+		}
 
 
-        if (Input.GetKey(KeyCode.RightArrow))
-        {
-            transform.Rotate(Vector3.up * RotationSpeed * Time.deltaTime);
-        }
-        if (Input.GetKey(KeyCode.LeftArrow))
-        {
-            transform.Rotate(Vector3.up * -1 * RotationSpeed * Time.deltaTime);
-        }
-        if (Input.GetKeyDown(KeyCode.P)&&!paused)
-        {
-            popup.SetActive(true);
-            Transform child = popup.transform.Find("TotalScore");
-            Text t = child.GetComponent<Text>();
-            t.text = "Total Score = "+score + "";
-            paused = true;
-            stop = Speed;
-            Speed = 0;
-        }
-        else if (Input.GetKeyDown(KeyCode.P) && paused)
-        {
-            popup.SetActive(false);
-            transform.Translate(Vector3.forward * Speed * Time.deltaTime);
-            paused = false;
-            Speed = stop;
-        }
-        else if (score >= number_of_apples_to_win)
-        {
-            //SceneManager.LoadScene("LevelTwo");
-        }
-        
-
-    }
+	}
 
 	public void AddTail()
 	{
@@ -71,4 +74,5 @@ public class SnakeMovment : MonoBehaviour {
 		newTailPos.z -= z_offset;
 		tailObjects.Add(GameObject.Instantiate(TailPrefab,newTailPos,Quaternion.identity) as GameObject);
 	}
+
 }
