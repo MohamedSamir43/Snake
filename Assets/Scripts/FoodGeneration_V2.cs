@@ -4,9 +4,14 @@ using UnityEngine;
 
 public class FoodGeneration_V2 : MonoBehaviour {
 
-    public List<GameObject> Food;
+    public bool in_Reverese;
     public int index_of_active_food;
+    public List<GameObject> Food;
+    
 	void Start () {
+        if (in_Reverese == false)
+            Food.Reverse();
+
 		foreach(GameObject i in Food)
             i.SetActive(false);
 

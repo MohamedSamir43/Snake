@@ -6,7 +6,13 @@ using UnityEngine.SceneManagement;
 public class SnakeMovment : MonoBehaviour {
 
 	public float Speed;
+    public float OriginalSpeed;
+    public float SpeedIncrease;
+    public float SpeedBonusTime;
+    float remaining_Time_For_Bonuse_speed;
+    public bool GotSpeedBonus;
 	public float RotationSpeed;
+
 	public List<GameObject> tailObjects = new List<GameObject>();
 	public float z_offset = 0.5f;
     public int number_of_apples_to_win;
@@ -15,23 +21,30 @@ public class SnakeMovment : MonoBehaviour {
 	public int score = 0;
 	float stop = 0;
 	public bool pausedBoolean = false;
-	public Text[] texts=new Text[2];
-	public Button[] buttons = new Button[4];
-	public GameObject popup;
+	//public Text[] texts=new Text[2];
+	//public Button[] buttons = new Button[4];
+	//public GameObject popup;
 	TransitionMenu transitionMenu;
 	Snake snakeScript;
 
 	void Start ()
 	{
 		tailObjects.Add(gameObject);
-		transitionMenu = new TransitionMenu(popup,texts,buttons);
-		snakeScript = new Snake(transform, RotationSpeed,Speed);
+        OriginalSpeed = Speed;
+        remaining_Time_For_Bonuse_speed = SpeedBonusTime;
+
+        //transitionMenu = new TransitionMenu(popup,texts,buttons);
+        transitionMenu = GameObject.FindGameObjectWithTag("TransitionMenu").GetComponent<TransitionMenu>(); 
+        snakeScript = new Snake(transform, RotationSpeed,Speed);
 	}
 
 	void Update()
 	{
 		ScoreText.text = score.ToString();
-		if (!transitionMenu.isPlay())
+        if (GotSpeedBonus)
+            SpeedBonus();
+
+        if (!transitionMenu.isPlay())
 		{
 			snakeScript.move(Time.deltaTime);
 		}
@@ -74,5 +87,19 @@ public class SnakeMovment : MonoBehaviour {
 		newTailPos.z -= z_offset;
 		tailObjects.Add(GameObject.Instantiate(TailPrefab,newTailPos,Quaternion.identity) as GameObject);
 	}
+    public void SpeedBonus()
+    {
+        snakeScript.speed = OriginalSpeed + SpeedIncrease;
+        Speed = OriginalSpeed + SpeedIncrease;
+        remaining_Time_For_Bonuse_speed -= Time.deltaTime;
 
+        if (remaining_Time_For_Bonuse_speed < 0)
+        {
+            snakeScript.speed = OriginalSpeed;
+            Speed = OriginalSpeed;
+            remaining_Time_For_Bonuse_speed = SpeedBonusTime;
+            GotSpeedBonus = false;
+        }
+
+    }
 }

@@ -112,14 +112,24 @@
     <Reference Include="SyntaxTree.VisualStudio.Unity.Bridge">
       <HintPath>Library\UnityAssemblies\SyntaxTree.VisualStudio.Unity.Bridge.dll</HintPath>
     </Reference>
+    <Reference Include="SharpCompress.3.5">
+      <HintPath>Assets\Movinarc\PackageUninstaller\Editor\SharpCompress.3.5.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="Snake.Plugins.csproj">
+      <Project>{41634D95-7B95-335F-D486-BD7EAF1A7AB1}</Project>
+      <Name>Snake.Plugins</Name>
+    </ProjectReference>
     <ProjectReference Include="Snake.csproj">
       <Project>{C80EA63D-D4EA-0D9E-4319-EE0A05C6B61E}</Project>
       <Name>Snake</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Movinarc\PackageUninstaller\Editor\PUManager.cs" />
+    <Compile Include="Assets\Movinarc\PackageUninstaller\Editor\PUSelection.cs" />
+    <Compile Include="Assets\Movinarc\PackageUninstaller\Editor\TreeNode.cs" />
     <Compile Include="Assets\NatureStarterKit2\Editor\ImageEffects\AntialiasingEditor.cs" />
     <Compile Include="Assets\NatureStarterKit2\Editor\ImageEffects\BloomAndFlaresEditor.cs" />
     <Compile Include="Assets\NatureStarterKit2\Editor\ImageEffects\BloomEditor.cs" />
@@ -138,6 +148,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Models\s2ogj4shxc-WireFence\Fence\Readme.txt" />
+    <None Include="Assets\Movinarc\PackageUninstaller\README.txt" />
     <None Include="Assets\NatureStarterKit\Standard Assets\Effects\ImageEffects\Shaders\BlendModesOverlay.shader" />
     <None Include="Assets\NatureStarterKit\Standard Assets\Effects\ImageEffects\Shaders\BlurEffectConeTaps.shader" />
     <None Include="Assets\NatureStarterKit\Standard Assets\Effects\ImageEffects\Shaders\CameraMotionBlur.shader" />
@@ -216,6 +227,11 @@
     <None Include="Assets\NatureStarterKit2\Standard Assets\Effects\ToonShading\Shaders\ToonLit.shader" />
     <None Include="Assets\NatureStarterKit2\Standard Assets\Effects\ToonShading\Shaders\ToonLitOutline.shader" />
     <None Include="Assets\NatureStarterKit2\info.txt" />
+    <None Include="Assets\Standard Assets\Environment\Water (Basic)\Shaders\FXWaterBasic.shader" />
+    <None Include="Assets\Standard Assets\Environment\Water\Water\Shaders\FXWaterPro.shader" />
+    <None Include="Assets\Standard Assets\Environment\Water\Water4\Shaders\FXWater4Advanced.shader" />
+    <None Include="Assets\Standard Assets\Environment\Water\Water4\Shaders\FXWater4Simple.shader" />
+    <None Include="Assets\Standard Assets\Environment\Water\Water4\Shaders\WaterInclude.cginc" />
     <None Include="Assets\Unity UI Samples\Fonts\Jupiter\LICENSE.txt" />
     <None Include="Assets\Unity UI Samples\Materials\UI-Default-No-Alpha.shader" />
     <None Include="Assets\Unity UI Samples\Textures and Sprites\SF UI\Background\LICENSE.txt" />

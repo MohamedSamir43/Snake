@@ -15,12 +15,15 @@ public class TailMovment : MonoBehaviour {
 		Speed = mainSnake.Speed+2.5f;
 		tailTargetObj = mainSnake.tailObjects[mainSnake.tailObjects.Count-2];
 		indx = mainSnake.tailObjects.IndexOf(gameObject);
+        
 	}
 	void Update () {
-	tailTarget = tailTargetObj.transform.position;
+    Speed = mainSnake.Speed + 2.5f;
+    tailTarget = tailTargetObj.transform.position;
 	transform.LookAt(tailTarget);
 	transform.position = Vector3.Lerp(transform.position,tailTarget,Time.deltaTime*Speed);
-	}
+    transform.Rotate(90,0,0);
+    }
 
 	void OnTriggerEnter(Collider other)
 	{

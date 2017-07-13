@@ -3,12 +3,12 @@ using System.Collections;
 
 public class Food : MonoBehaviour {
 	public static bool hitTakePlace = false;
-	void OnTriggerEnter(Collider other)
+	void OnCollisionEnter(Collision other)
 	{
-        if (other.CompareTag("SnakeMain"))
+        if (other.collider.CompareTag("SnakeMain"))
         {
 			hitTakePlace = true;
-            other.GetComponent<SnakeMovment>().AddTail();
+            other.gameObject.GetComponent<SnakeMovment>().AddTail();
             Destroy(gameObject);
             GameObject.FindWithTag("FoodGenerator").GetComponent<FoodGeneration_V2>().updateFood();
         }
