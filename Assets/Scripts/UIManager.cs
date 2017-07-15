@@ -28,11 +28,13 @@ public class UIManager : MonoBehaviour
 
     public void Quit()
     {
-        //if playing in Unity Editor 
+#if UNITY_EDITOR
+        // Application.Quit() does not work in the editor so
+        // UnityEditor.EditorApplication.isPlaying need to be set to false to end the game
         UnityEditor.EditorApplication.isPlaying = false;
-
-        /* if playing on Build 
-        Application.Quit(); */
+#else
+         Application.Quit();
+#endif
 
 
     }

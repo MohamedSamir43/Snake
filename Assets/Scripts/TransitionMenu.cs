@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class TransitionMenu : MonoBehaviour {
+    //Script that controls the menu that appears to the user
     public Text head;
     public Text body;
     public Button leftButton;
@@ -25,7 +26,7 @@ public class TransitionMenu : MonoBehaviour {
         this.retry = (Button)buttons[2];
         this.newScene = (Button)buttons[3];
     }
-    public void win(float score)
+    public void win(float score) // function to pop up win screen
     {
         head.text = "You Win";
         body.text = "Congrulation! you score"+score;
@@ -38,7 +39,7 @@ public class TransitionMenu : MonoBehaviour {
     //   Level2 = GameObject.FindGameObjectWithTag("Level2");
 
     }
-    public void lose()
+    public void lose() // function to pop up lose screen
     {
         head.text = "You Lose";
         body.text = "you still have chance to be the top";
@@ -47,7 +48,7 @@ public class TransitionMenu : MonoBehaviour {
         retry.gameObject.SetActive(true);
         retry.GetComponentInChildren<Text>().text = "Play Again";
     }
-    public void paused()
+    public void paused() // function to pop up pause screen
     {
         head.text = "Pause";
         body.text = "we are waiting for you ^_^";
@@ -56,7 +57,7 @@ public class TransitionMenu : MonoBehaviour {
         newScene.gameObject.SetActive(false);
         retry.gameObject.SetActive(false);
     }
-    public void play()
+    public void play() 
     {
         image.SetActive(true);
     }

@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Snake : MonoBehaviour {
+    //Script that acts like a model to the snake
+    //Control the speed and its rotations speed and updates its movement
     public float rotationSpeed;
     public float speed;
     public Transform snake;

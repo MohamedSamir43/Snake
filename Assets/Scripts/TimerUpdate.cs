@@ -7,16 +7,14 @@ using UnityEngine.SceneManagement;
 public class TimerUpdate : MonoBehaviour
 {
 
-
+    //Script that controls the timer that appears to the player window
     public Text timerText;
     public float myTimer = 90f;
     public float timeIncrease = 5f;
-    private bool count_Down = true;
-
     // Use this for initialization
 
     void Start()
-    {
+    {       
 
     }
 
@@ -24,8 +22,12 @@ public class TimerUpdate : MonoBehaviour
     void Update()
     {
         myTimer -= Time.deltaTime;
-
-
+        
+        if(myTimer<=0)
+        {
+            Borders.hitTakePlace = true;
+            return;
+        }
         string minutes = ((int)myTimer / 60).ToString();
         string seconds = (myTimer % 60).ToString("f0");
 

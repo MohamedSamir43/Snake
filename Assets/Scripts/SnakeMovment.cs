@@ -6,10 +6,10 @@ using UnityEngine.SceneManagement;
 public class SnakeMovment : MonoBehaviour
 {
 
-    public float Speed;
-    public float OriginalSpeed;
-    public float SpeedIncrease;
-    public float SpeedBonusTime;
+    public float Speed; //Speed of the snake
+    public float OriginalSpeed; // temporary variable to store the original speed
+    public float SpeedIncrease; //the amount of speed added to the snake original speed
+    public float SpeedBonusTime; //the amount of time given to the snake for using its new speed bost
     float remaining_Time_For_Bonuse_speed;
     public bool GotSpeedBonus;
     public float RotationSpeed;
@@ -82,14 +82,14 @@ public class SnakeMovment : MonoBehaviour
 
     }
 
-    public void AddTail()
+    public void AddTail()//this function instantiate a new capsule and add it to the tail array [Tail objects]
     {
         score++;
         Vector3 newTailPos = tailObjects[tailObjects.Count - 1].transform.position;
         newTailPos.z -= z_offset;
         tailObjects.Add(GameObject.Instantiate(TailPrefab, newTailPos, Quaternion.identity) as GameObject);
     }
-    public void SpeedBonus()
+    public void SpeedBonus()//this functions is activated only when Got Speed bonus is activated when the snake takes a speed boost
     {
         snakeScript.speed = OriginalSpeed + SpeedIncrease;
         Speed = OriginalSpeed + SpeedIncrease;

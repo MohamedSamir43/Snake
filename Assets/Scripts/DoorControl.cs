@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class DoorControl : MonoBehaviour {
 
+    //script specially made for level 3
+    //Opens the door to the next are when player reach a certain score in his current area
     public List<GameObject> Door;
     public SnakeMovment snake;
     void Start () {
