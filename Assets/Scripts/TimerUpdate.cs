@@ -6,12 +6,15 @@ using UnityEngine.SceneManagement;
 
 public class TimerUpdate : MonoBehaviour
 {
+
+
     public Text timerText;
     public float myTimer = 90f;
     public float timeIncrease = 5f;
     private bool count_Down = true;
 
     // Use this for initialization
+
     void Start()
     {
 
@@ -33,5 +36,4 @@ public class TimerUpdate : MonoBehaviour
     {
         myTimer += timeIncrease;
     }
-
 }

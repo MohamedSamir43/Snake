@@ -21,4 +21,8 @@ public class PausedScriptFunction : MonoBehaviour {
         closeTheMenu(image);
         Application.LoadLevel("Level_1");
     }
+    public void nextLeveL(string sceneName)
+    {
+        Application.LoadLevel(sceneName);
+    }
 }

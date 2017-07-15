@@ -17845,6 +17845,7 @@
             
             </summary>
         </member>
+<<<<<<< HEAD
         <member name="T:System.Web.UI.ICallbackEventHandler">
             <summary>
             A shim of the .NET interface for platforms that do not support it.
@@ -17863,6 +17864,8 @@
             </summary>
             <returns></returns>
         </member>
+=======
+>>>>>>> 4288097e2965f09c63773f7b70aebb7434be69e9
         <member name="T:System.Lazy`1">
             <summary>
             

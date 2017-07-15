@@ -16,7 +16,9 @@ public class DoorControl : MonoBehaviour {
             Destroy(Door[0]);
         else if (snake.score == 20)
             Destroy(Door[1]);
+
         else if (snake.score == 30)
+
             Destroy(Door[2]);
 
     }

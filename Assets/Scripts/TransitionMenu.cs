@@ -11,7 +11,8 @@ public class TransitionMenu : MonoBehaviour {
     public Button newScene;
     public Button retry;
     public GameObject image;
-    public Button Level2;
+   // public Button Level2;
+
     public TransitionMenu(GameObject image,Text[] texts,Button[] buttons )
     {
         Debug.Log("Constructor");
@@ -33,7 +34,9 @@ public class TransitionMenu : MonoBehaviour {
         newScene.gameObject.SetActive(true);
         newScene.GetComponentInChildren<Text>().text = "Next Level";
         Borders.hitTakePlace = false;
+
     //   Level2 = GameObject.FindGameObjectWithTag("Level2");
+
     }
     public void lose()
     {

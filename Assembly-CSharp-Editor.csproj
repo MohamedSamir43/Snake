@@ -46,6 +46,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Movinarc\PackageUninstaller\Editor\PUManager.cs" />
+     <Compile Include="Assets\Movinarc\PackageUninstaller\Editor\PUSelection.cs" />
+     <Compile Include="Assets\Movinarc\PackageUninstaller\Editor\TreeNode.cs" />
      <Compile Include="Assets\NatureStarterKit2\Editor\ImageEffects\AntialiasingEditor.cs" />
      <Compile Include="Assets\NatureStarterKit2\Editor\ImageEffects\BloomAndFlaresEditor.cs" />
      <Compile Include="Assets\NatureStarterKit2\Editor\ImageEffects\BloomEditor.cs" />
@@ -86,9 +89,11 @@
      <None Include="Assets\NatureStarterKit\Standard Assets\Effects\ImageEffects\Shaders\_DepthOfField\DepthOfFieldDX11.shader" />
      <None Include="Assets\NatureStarterKit\Standard Assets\Effects\ImageEffects\Shaders\ContrastComposite.shader" />
      <None Include="Assets\NatureStarterKit\Standard Assets\Effects\ImageEffects\Shaders\_Antialiasing\FXAAPreset3.shader" />
+     <None Include="Assets\Movinarc\PackageUninstaller\README.txt" />
      <None Include="Assets\NatureStarterKit\Standard Assets\Effects\ImageEffects\Shaders\FisheyeShader.shader" />
      <None Include="Assets\NatureStarterKit\Standard Assets\Effects\ImageEffects\Shaders\Contrast Stretch\Apply.shader" />
      <None Include="Assets\Unity UI Samples\Fonts\Jupiter\LICENSE.txt" />
+     <None Include="Assets\Standard Assets\Environment\Water\Water4\Shaders\FXWater4Simple.shader" />
      <None Include="Assets\NatureStarterKit2\Standard Assets\Effects\ImageEffects\Shaders\frag_ao.cginc" />
      <None Include="Assets\NatureStarterKit2\Standard Assets\Effects\ToonShading\Shaders\ToonBasicOutline.shader" />
      <None Include="Assets\NatureStarterKit\Standard Assets\Effects\ImageEffects\Shaders\_DepthOfField\DepthOfField34.shader" />
@@ -99,6 +104,7 @@
      <None Include="Assets\NatureStarterKit\Standard Assets\Effects\ImageEffects\Shaders\ColorCorrectionCurvesSimple.shader" />
      <None Include="Assets\NatureStarterKit\Standard Assets\Effects\ImageEffects\Shaders\NoiseEffectShaderYUV.shader" />
      <None Include="Assets\NatureStarterKit\Standard Assets\Effects\ImageEffects\Shaders\CreaseApply.shader" />
+     <None Include="Assets\Standard Assets\Environment\Water (Basic)\Shaders\FXWaterBasic.shader" />
      <None Include="Assets\NatureStarterKit\Standard Assets\Effects\ImageEffects\Shaders\ChromaticAberrationShader.shader" />
      <None Include="Assets\NatureStarterKit\Standard Assets\Effects\ImageEffects\Shaders\GlobalFog.shader" />
      <None Include="Assets\NatureStarterKit2\Standard Assets\Effects\ToonShading\Shaders\ToonLitOutline.shader" />
@@ -113,6 +119,7 @@
      <None Include="Assets\NatureStarterKit\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\MultiPassHollywoodFlares.shader" />
      <None Include="Assets\NatureStarterKit\Standard Assets\Effects\ImageEffects\Shaders\BlurEffectConeTaps.shader" />
      <None Include="Assets\NatureStarterKit\Standard Assets\Effects\ImageEffects\Shaders\CameraMotionBlur.shader" />
+     <None Include="Assets\Standard Assets\Environment\Water\Water\Shaders\FXWaterPro.shader" />
      <None Include="Assets\NatureStarterKit\Standard Assets\Effects\ImageEffects\Shaders\_Antialiasing\DLAA.shader" />
      <None Include="Assets\NatureStarterKit\Standard Assets\Effects\ImageEffects\Shaders\NoiseAndGrainDX11.shader" />
      <None Include="Assets\NatureStarterKit\info.txt" />
@@ -137,6 +144,8 @@
      <None Include="Assets\NatureStarterKit2\Standard Assets\Effects\ImageEffects\Shaders\PrepareSunShaftsBlur.shader" />
      <None Include="Assets\NatureStarterKit\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\Blend.shader" />
      <None Include="Assets\NatureStarterKit\Standard Assets\Effects\ImageEffects\Shaders\BlendModesOverlay.shader" />
+     <None Include="Assets\Standard Assets\Environment\Water\Water4\Shaders\WaterInclude.cginc" />
+     <None Include="Assets\Standard Assets\Environment\Water\Water4\Shaders\FXWater4Advanced.shader" />
      <None Include="Assets\NatureStarterKit\Standard Assets\Effects\ImageEffects\Shaders\SimpleClear.shader" />
      <None Include="Assets\NatureStarterKit2\Standard Assets\Effects\TessellationShaders\Shaders\BumpedSpecularDisplacement.shader" />
      <None Include="Assets\NatureStarterKit\Standard Assets\Effects\ImageEffects\Shaders\_Antialiasing\FXAA3Console.shader" />
@@ -200,8 +209,13 @@
  <Reference Include="UnityEditor.WindowsStandalone.Extensions">
  <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/windowsstandalonesupport/UnityEditor.WindowsStandalone.Extensions.dll</HintPath>
  </Reference>
+ <Reference Include="SharpCompress.3.5">
+ <HintPath>C:/Users/Menna/Desktop/Snaaaaaaaaaaaaaaaaaaake Final v/Level3/Level3/Snake/Assets/Movinarc/PackageUninstaller/Editor/SharpCompress.3.5.dll</HintPath>
+ </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
+      <Project>{98DB7199-805A-2693-E2DF-1246E229D7DF}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
     <ProjectReference Include="Assembly-CSharp.csproj">
       <Project>{27E3B7BB-7210-4DB8-2CDE-8C5F9221D3B6}</Project>      <Name>Assembly-CSharp</Name>    </ProjectReference>
   </ItemGroup>

@@ -15,6 +15,7 @@ public class TailMovment : MonoBehaviour {
 		Speed = mainSnake.Speed+2.5f;
 		tailTargetObj = mainSnake.tailObjects[mainSnake.tailObjects.Count-2];
 		indx = mainSnake.tailObjects.IndexOf(gameObject);
+
 	}
 	void Update () {
 	tailTarget = tailTargetObj.transform.position;

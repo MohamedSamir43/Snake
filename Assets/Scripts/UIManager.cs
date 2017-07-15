@@ -6,6 +6,7 @@ public class UIManager : MonoBehaviour
 {
     public AudioSource Source;
     public AudioClip Clip;
+
     public void start()
     {
         DontDestroyOnLoad(GameObject.FindGameObjectWithTag("Level2"));
