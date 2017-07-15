@@ -12,26 +12,29 @@ public class TailMovment : MonoBehaviour {
 	{
 		
 		mainSnake = GameObject.FindGameObjectWithTag("SnakeMain").GetComponent<SnakeMovment>();
-		Speed = mainSnake.Speed+2.5f;
 		tailTargetObj = mainSnake.tailObjects[mainSnake.tailObjects.Count-2];
 		indx = mainSnake.tailObjects.IndexOf(gameObject);
 
 	}
 	void Update () {
-	tailTarget = tailTargetObj.transform.position;
+        Speed = mainSnake.Speed + 2.5f;
+        tailTarget = tailTargetObj.transform.position;
 	transform.LookAt(tailTarget);
 	transform.position = Vector3.Lerp(transform.position,tailTarget,Time.deltaTime*Speed);
+        transform.Rotate(90, 0, 0);
+        
 	}
 
-	void OnTriggerEnter(Collider other)
+	void OnCollisionEnter(Collision other)
 	{
 		
-		if(other.CompareTag("SnakeMain"))
+		if(other.collider.CompareTag("SnakeMain"))
 		{
 			if(indx > 2)
 			{
-				Application.LoadLevel(Application.loadedLevel);
-			}
+				//Application.LoadLevel(Application.loadedLevel);
+                GameObject.FindGameObjectWithTag("TransitionMenu").GetComponent<TransitionMenu>().lose();
+            }
 		}
 
 	}

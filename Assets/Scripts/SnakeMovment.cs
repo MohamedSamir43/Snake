@@ -20,8 +20,7 @@ public class SnakeMovment : MonoBehaviour
     public GameObject TailPrefab;
     public Text ScoreText;
     public int score = 0;
-    float stop = 0;
-    public bool pausedBoolean = false;
+    public bool SnakeStop = false;
     //public Text[] texts=new Text[2];
     //public Button[] buttons = new Button[4];
     //public GameObject popup;
@@ -37,6 +36,8 @@ public class SnakeMovment : MonoBehaviour
         //transitionMenu = new TransitionMenu(popup,texts,buttons);
         transitionMenu = GameObject.FindGameObjectWithTag("TransitionMenu").GetComponent<TransitionMenu>();
         snakeScript = new Snake(transform, RotationSpeed, Speed);
+        AddTail();
+        score--;
     }
 
     void Update()

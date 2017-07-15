@@ -17845,27 +17845,6 @@
             
             </summary>
         </member>
-<<<<<<< HEAD
-        <member name="T:System.Web.UI.ICallbackEventHandler">
-            <summary>
-            A shim of the .NET interface for platforms that do not support it.
-            Used to indicate that a control can be the target of a callback event on the server.
-            </summary>
-        </member>
-        <member name="M:System.Web.UI.ICallbackEventHandler.RaiseCallbackEvent(System.String)">
-            <summary>
-            Processes a callback event that targets a control.
-            </summary>
-            <param name="report"></param>
-        </member>
-        <member name="M:System.Web.UI.ICallbackEventHandler.GetCallbackResult">
-            <summary>
-            Returns the results of a callback event that targets a control.
-            </summary>
-            <returns></returns>
-        </member>
-=======
->>>>>>> 4288097e2965f09c63773f7b70aebb7434be69e9
         <member name="T:System.Lazy`1">
             <summary>
             
