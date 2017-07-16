@@ -2,35 +2,42 @@
 using System.Collections;
 
 public class TailMovment : MonoBehaviour {
+    //Tail of the snake consists of many capsules each capsule follow the other in a linked list
 
-	public float Speed;
-	public Vector3 tailTarget;
+    //this script is given to each capsule
+	public float Speed;  //speed of capsule
+	public Vector3 tailTarget; //Reference to the capsule in front of her
 	public int indx;
 	public GameObject tailTargetObj;
-	public SnakeMovment mainSnake;
-	void Start()
+	public SnakeMovment mainSnake; //Reference to the main snake movement script
+    void Start()
 	{
 		
 		mainSnake = GameObject.FindGameObjectWithTag("SnakeMain").GetComponent<SnakeMovment>();
-		Speed = mainSnake.Speed+2.5f;
 		tailTargetObj = mainSnake.tailObjects[mainSnake.tailObjects.Count-2];
 		indx = mainSnake.tailObjects.IndexOf(gameObject);
+
 	}
 	void Update () {
-	tailTarget = tailTargetObj.transform.position;
-	transform.LookAt(tailTarget);
-	transform.position = Vector3.Lerp(transform.position,tailTarget,Time.deltaTime*Speed);
+        //update the location of the capsule according to the snake movement speed and the capsule position in the tail
+        Speed = mainSnake.Speed + 2.5f;
+        tailTarget = tailTargetObj.transform.position;
+    	transform.LookAt(tailTarget);
+	    transform.position = Vector3.Lerp(transform.position,tailTarget,Time.deltaTime*Speed);
+        transform.Rotate(90, 0, 0);
+        
 	}
 
-	void OnTriggerEnter(Collider other)
+	void OnCollisionEnter(Collision other)
 	{
-		
-		if(other.CompareTag("SnakeMain"))
+		//check the collision of the snake with its tail
+		if(other.collider.CompareTag("SnakeMain"))
 		{
 			if(indx > 2)
 			{
-				Application.LoadLevel(Application.loadedLevel);
-			}
+				//Application.LoadLevel(Application.loadedLevel);
+                GameObject.FindGameObjectWithTag("TransitionMenu").GetComponent<TransitionMenu>().lose();
+            }
 		}
 
 	}
